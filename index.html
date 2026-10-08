@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Universal Converter — units, currency, number bases, colour &amp; more</title>
+<meta name="description" content="Convert anything: physical units, live currency exchange rates, number bases, colours, paper and shoe sizes, time zones, ages and physics constants.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128255;</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">⇄</span>
+    <span class="brand-text">
+      <strong>Universal Converter</strong>
+      <small>units · currency · number bases · colour · and more</small>
+    </span>
+  </div>
+
+  <div class="topbar-actions">
+    <button type="button" id="palette-btn" class="btn btn-ghost" title="Search everything (Ctrl/⌘ K)">
+      <span aria-hidden="true">⌕</span> Jump to…
+    </button>
+    <span id="rates-badge" class="badge" hidden></span>
+    <button type="button" id="theme-btn" class="btn btn-icon" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-search">
+      <input type="search" id="cat-filter" placeholder="Filter categories and units…"
+             autocomplete="off" spellcheck="false" aria-label="Filter categories and units">
+    </div>
+    <nav id="cat-nav" aria-label="Conversion categories"></nav>
+  </aside>
+
+  <main class="content" id="view" tabindex="-1">
+    <noscript>
+      <div class="card">This converter needs JavaScript enabled.</div>
+    </noscript>
+  </main>
+
+</div>
+
+<!-- command palette -->
+<div class="palette-backdrop" id="palette" hidden>
+  <div class="palette-box" role="dialog" aria-modal="true" aria-label="Jump to a converter">
+    <input type="text" id="palette-input" placeholder="Search units, categories, currencies, colours…"
+           autocomplete="off" spellcheck="false" aria-label="Search">
+    <ul id="palette-results" role="listbox"></ul>
+    <p class="palette-hint"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>Esc</kbd> close</p>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<!-- classic scripts: shared globals, works straight from file:// -->
+<script src="color-names.js"></script>
+<script src="currency-snapshot.js"></script>
+<script src="convert.js"></script>
+<script src="units.js"></script>
+<script src="numeral.js"></script>
+<script src="color.js"></script>
+<script src="currency.js"></script>
+<script src="extras.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
